@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container py-5">
+  <div class="row rounded shadow-lg py-3 border border-5">
+
+    <div class="col-md-4">
+      <img style="width:300px" src="{{object.book_image.url}}" class="img-fluid" alt="{{object.book_name}}"/>
+    </div>
+  
+    <div class="col-md-8 d-flex flex-column justify-content-center">
+        <h5><b>Book Name</b> : {{object.book_name}}</h5>
+        <h5><b>Book Title</b> : {{object.title}}</h5>
+        <h5><b>Queantity </b>:{{ object.queantity}}</h5>
+        <h5><b>Description </b>:{{ object.description}}</h5>
+        <h5><b>Category : </b>
+          {% for cate in object.category.all %}
+            <b>{{cate.category_name}},</b>
+          {% endfor %}
+        </h5><br>
+        {% comment %} {% if user.is_authenticated %} {% endcomment %}
+          <button class="btn btn-warning"><a class="text-decoration-none text-dark" href="{% url "borrowbook" object.id%}"><b>Borrow Book</b></a></button>
+        {% comment %} {% endif %} {% endcomment %}
+    </div>
+  
+  </div>
+</div>
+
+{% endblock content %}

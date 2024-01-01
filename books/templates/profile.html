@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+
+<h1>Here is Your All Borrowing Book List:</h1><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Book Name</th>
+      <th scope="col">Book Price</th>
+      <th scope="col">Balance After Borrowing Book</th>
+      <th scope="col">Borrowing Date</th>
+      <th scope="col">Return Book</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in data %}
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.book_name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.after_decreament}}</td>
+        <td>{{item.borrowed_date}}</td>
+        <td><button class="btn btn-danger text-color-white"><a href="{% url "return_book" item.id %}" class="text-decoration-none text-white">Return</a></button></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content %}
