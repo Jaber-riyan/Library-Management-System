@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-p^)#)k=dnt=4&a&gqa#hu=n$(#=x#jok!w@swlbx%+3&c2h_y(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*","apna-bookself.onrender.com"]
 
 
 # Application definition
